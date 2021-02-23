@@ -95,7 +95,7 @@ export default function Hero() {
         <directionalLight position={[0, 5, 0]} intensity={0.4} />
       </Suspense>
       {/* <Intro start={ready && clicked} set={setReady} /> */}
-      <OrbitControls maxPolarAngle={Math.PI / 2} maxDistance={20} />
+      {/* <OrbitControls maxPolarAngle={Math.PI / 2} maxDistance={20} /> */}
     </Canvas>
   );
 }
