@@ -13,6 +13,7 @@ import {
   useTexture,
   Reflector,
 } from "@react-three/drei";
+import texture from "./assets/images/encoded.png";
 import surface from "./assets/images/SurfaceImperfections003_1K_var1.jpg";
 import surfaceNormal from "./assets/images/SurfaceImperfections003_1K_Normal.jpg";
 
@@ -21,8 +22,8 @@ function Ground() {
   return (
     <Reflector
       resolution={512}
-      args={[15, 15]}
-      mirror={0.5}
+      args={[30, 15]}
+      mirror={0.6}
       mixBlur={10}
       mixStrength={0.8}
       rotation={[-Math.PI / 2, 0, Math.PI / 2]}
@@ -43,53 +44,29 @@ function Ground() {
 }
 
 function Box({ position, rotation, url }) {
-  //const ref = useWobble(Math.random() * 0.1, "cos")
   const ref = useRef();
-  const [texture1] = useLoader(THREE.TextureLoader, [url]);
-  //exture1.wrapS = texture1.wrapT = THREE.RepeatWrapping
-  useFrame((state, delta) => {
-    ref.current.material.time += delta;
-    //ref.current.rotation.y += delta / 50
+  const texture1 = useLoader(THREE.TextureLoader, url);
+
+  texture1.wrapS = texture1.wrapT = THREE.ClampToEdgeWrapping;
+
+  useFrame(() => {
+    ref.current.rotation.y += 0.001;
   });
+
   return (
     <group>
       <mesh ref={ref} position={position} rotation={rotation}>
-        <planeBufferGeometry args={[2, 4]} />
-        <meshBasicMaterial txt={texture1} side={THREE.DoubleSide} />
+        <planeBufferGeometry args={[10, 10]} />
+        <meshStandardMaterial
+          map={texture1}
+          side={THREE.DoubleSide}
+          opacity={0.5}
+          transparent
+        />
       </mesh>
     </group>
   );
 }
-
-function Intro({ start, set }) {
-  const [vec] = useState(() => new THREE.Vector3());
-  useEffect(() => setTimeout(() => set(true), 500), []);
-  return useFrame((state) => {
-    if (start) {
-      state.camera.position.lerp(
-        vec.set(state.mouse.x * 5, state.mouse.y * 2, 6),
-        0.05
-      );
-      state.camera.lookAt(0, 0, 0);
-    }
-  });
-}
-
-// function Overlay({ ready, clicked, setClicked }) {
-//   return (
-//     <>
-//       <div
-//         className={`fullscreen bg ${ready ? "ready" : "notready"} ${
-//           clicked && "clicked"
-//         }`}
-//       >
-//         <div onClick={() => ready && setClicked(true)}>
-//           {!ready ? "loading" : "Explore"}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
 
 export default function Hero() {
   const [clicked, setClicked] = useState(false);
@@ -100,7 +77,7 @@ export default function Hero() {
     <Canvas
       gl={{ alpha: false }}
       pixelRatio={[1, 1.5]}
-      camera={{ position: [0, 2, 12], fov: 60 }}
+      camera={{ position: [0, 0, 15], fov: 60 }}
       onCreated={({ gl, camera }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping;
         gl.outputEncoding = THREE.sRGBEncoding;
@@ -108,8 +85,9 @@ export default function Hero() {
     >
       <color attach="background" args={["#000"]} />
       <fog attach="fog" args={["#111", 15, 20]} />
-      <Suspense fallback={null}>
+      <Suspense fallback={"Loading..."}>
         <group position={[0, -2, 0]}>
+          <Box url={texture} position={[0, 5, 0]} />
           <Ground />
         </group>
         <ambientLight intensity={0.5} />
@@ -117,7 +95,7 @@ export default function Hero() {
         <directionalLight position={[0, 5, 0]} intensity={0.4} />
       </Suspense>
       {/* <Intro start={ready && clicked} set={setReady} /> */}
-      {/* <OrbitControls maxPolarAngle={Math.PI / 2} maxDistance={20} /> */}
+      <OrbitControls maxPolarAngle={Math.PI / 2} maxDistance={20} />
     </Canvas>
   );
 }

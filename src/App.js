@@ -4,6 +4,7 @@ import logo from "./assets/images/encoded.png";
 import logoText from "./assets/images/text_logo.png";
 import experiment from "./assets/images/experiment.png";
 import cfl from "./assets/images/cfl.jpg";
+import planar from "./assets/images/planar.png";
 import "./App.css";
 import { isMobileWithTablet } from "./utils";
 import Hero from "./Hero";
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="app">
       <Flex as="nav" px={isMobileWithTablet ? 3 : 5} py={3}>
-        <Image sx={{ width: "50px" }} src={logo} alt="Encoded Studio logo" />
+        {/* <Image sx={{ width: "50px" }} src={logo} alt="Encoded Studio logo" /> */}
         {/* <NavLink href="#!" p={2}>
           Home
         </NavLink> */}
@@ -96,7 +97,7 @@ function App() {
             mt={isMobileWithTablet ? 3 : 0}
             sx={{ maxWidth: "500px" }}
           >
-            <Image className="cardImage" src={stage} alt="Project: Planar" />
+            <Image className="cardImage" src={planar} alt="Project: Planar" />
             <Text className="cardText">Planar</Text>
           </Card>
           <Card
@@ -110,6 +111,14 @@ function App() {
               alt="Cross Fertilization Lab Winner"
             />
             <Text className="cardText">Cross Fertilization Lab Winner</Text>
+          </Card>
+          <Card
+            className="card"
+            mt={isMobileWithTablet ? 3 : 0}
+            sx={{ maxWidth: "500px" }}
+          >
+            <Image className="cardImage" src={stage} alt="Stage Design" />
+            <Text className="cardText">Stage Design for Visionnaire</Text>
           </Card>
         </Grid>
       </Container>
