@@ -14,15 +14,17 @@ function CharsBar() {
   return (
     <div
       style={{
-        fontSize: "1.2vw",
+        fontSize: "1.3vw",
         position: "absolute",
+        padding: "0 15px",
         top: 0,
         left: 0,
         zIndex: 3,
         letterSpacing: "10px",
         display: "flex",
+        lineHeight: 1,
         opacity: 0.75,
-        height: "25px",
+        height: "30px",
         overflow: "hidden",
       }}
     >
@@ -175,8 +177,19 @@ function App() {
               encoded.studio@gmail.com
             </Text>
           </Flex>
-          <Flex></Flex>
-          <Flex></Flex>
+          <Flex>
+            <a href="https://www.instagram.com/encoded.studio" target="_blank">
+              INSTAGRAM
+            </a>
+          </Flex>
+          <Flex>
+            <a
+              href="https://www.linkedin.com/company/encoded-studio"
+              target="_blank"
+            >
+              LINKEDIN
+            </a>
+          </Flex>
           <Flex></Flex>
           <Flex></Flex>
         </Grid>
