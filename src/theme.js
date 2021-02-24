@@ -17,6 +17,7 @@ export default {
   },
   colors: {
     text: "#202124",
+    lighten: "#111",
     background: "#fff",
     primary: "#1a73e8",
     secondary: "#9c27b0",

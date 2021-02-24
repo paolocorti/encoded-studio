@@ -5,6 +5,7 @@ import logoText from "./assets/images/text_logo.png";
 import experiment from "./assets/images/experiment.png";
 import cfl from "./assets/images/cfl.jpg";
 import planar from "./assets/images/planar.png";
+import lightCube from "./assets/images/light_cube.jpg";
 import "./App.css";
 import { isMobileWithTablet } from "./utils";
 import Hero from "./Hero";
@@ -75,10 +76,12 @@ function App() {
           >
             <Image
               className="cardImage"
-              src={stage}
+              src={lightCube}
               alt="Experiment: Light cube"
             />
-            <Text className="cardText">Light Cube</Text>
+            <Text className="cardText" sx={{ bottom: "164px" }}>
+              Light Cube
+            </Text>
           </Card>
           <Card
             className="card"
@@ -98,7 +101,9 @@ function App() {
             sx={{ maxWidth: "500px" }}
           >
             <Image className="cardImage" src={planar} alt="Project: Planar" />
-            <Text className="cardText">Planar</Text>
+            <Text className="cardText" sx={{ bottom: "132px" }}>
+              Planar
+            </Text>
           </Card>
           <Card
             className="card"
@@ -120,6 +125,24 @@ function App() {
             <Image className="cardImage" src={stage} alt="Stage Design" />
             <Text className="cardText">Stage Design for Visionnaire</Text>
           </Card>
+        </Grid>
+      </Container>
+      <Container p={isMobileWithTablet ? 3 : 5} bg={"lighten"}>
+        <Grid gap={2} columns={[isMobileWithTablet ? 1 : 5]}>
+          <Flex>
+            <Image
+              sx={{ width: "50px" }}
+              src={logo}
+              alt="Encoded Studio logo"
+            />
+            <Text as="h2" sx={{ marginLeft: "15px" }}>
+              encoded.studio@gmail.com
+            </Text>
+          </Flex>
+          <Flex></Flex>
+          <Flex></Flex>
+          <Flex></Flex>
+          <Flex></Flex>
         </Grid>
       </Container>
     </div>
