@@ -166,7 +166,7 @@ function App() {
         sx={{ position: "relative" }}
       >
         <CharsBar />
-        <Grid gap={2} columns={[isMobileWithTablet ? 1 : 5]}>
+        <Grid gap={2} columns={[isMobileWithTablet ? 1 : 4]}>
           <Flex>
             <Image
               sx={{ width: "50px" }}
@@ -181,7 +181,11 @@ function App() {
             <a
               href="https://www.instagram.com/encoded.studio"
               target="_blank"
-              style={{ color: "white", fontSize: "24px" }}
+              style={{
+                color: "white",
+                fontSize: "20px",
+                textDecoration: "none",
+              }}
             >
               INSTAGRAM
             </a>
@@ -190,12 +194,15 @@ function App() {
             <a
               href="https://www.linkedin.com/company/encoded-studio"
               target="_blank"
-              style={{ color: "white", fontSize: "24px" }}
+              style={{
+                color: "white",
+                fontSize: "20px",
+                textDecoration: "none",
+              }}
             >
               LINKEDIN
             </a>
           </Flex>
-          <Flex></Flex>
           <Flex></Flex>
         </Grid>
       </Container>
