@@ -78,7 +78,7 @@ export default function Hero() {
 
   return (
     <Canvas
-      gl={{ alpha: false }}
+      gl={{ alpha: true }}
       pixelRatio={[1, 1.5]}
       camera={{ position: [0, 0, 15], fov: 60 }}
       onCreated={({ gl, camera }) => {
