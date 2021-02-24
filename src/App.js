@@ -9,14 +9,42 @@ import lightCube from "./assets/images/light_cube.jpg";
 import "./App.css";
 import { isMobileWithTablet } from "./utils";
 import Hero from "./Hero";
+
+function CharsBar() {
+  return (
+    <div
+      style={{
+        fontSize: "1.2vw",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: 3,
+        letterSpacing: "10px",
+        display: "flex",
+        opacity: 0.75,
+        height: "25px",
+        overflow: "hidden",
+      }}
+    >
+      &#x000AC; &#x0002B; &#x000AA; &#x003B4; &#x021B6; &#x021C9; &#x0226C;
+      &#x0255D; &#x02591; &#x027F5; &#x02A15; &#x02AEF; &#x000A1; &#x000FA;
+      &#x000A8; &#x000B6; &#x000B6; &#x000D7; &#x000E6; &#x02039; &#x0204F;
+      &#x02031; &#x002DA; &#x02253; &#x000C5; &#x000B5; &#x000FF; &#x000F0;
+      &#x002DA; &#x02230; &#x02294; &#x0229B; &#x022B7; &#x022C6; &#x023B6;
+      &#x02640; &#x02ADA; &#x00024;
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="app">
-      <Flex as="nav" px={isMobileWithTablet ? 3 : 5} py={3}>
+      <Flex as="nav" px={isMobileWithTablet ? 0 : 0} py={3}>
         {/* <Image sx={{ width: "50px" }} src={logo} alt="Encoded Studio logo" /> */}
         {/* <NavLink href="#!" p={2}>
           Home
         </NavLink> */}
+        <CharsBar />
       </Flex>
       <Container
         px={0}
@@ -48,9 +76,9 @@ function App() {
           ]}
         >
           <Container>
-            <Text sx={{ fontSize: isMobileWithTablet ? "30px" : "4vw" }}>
-              Encoded.Studio is a research and development space, where we try
-              to find a way to translate and decode the complexity of the world.
+            <Text sx={{ fontSize: isMobileWithTablet ? "30px" : "6vw" }}>
+              &#x000AC; Encoded.Studio is a research and development space
+              &#x02192;
             </Text>
           </Container>
           <Container sx={{ overflow: "hidden" }}>
@@ -58,11 +86,10 @@ function App() {
               sx={{
                 fontSize: isMobileWithTablet ? "40px" : "5vw",
                 writingMode: "vertical-rl",
-                textOrientation: "upright",
-                letterSpacing: "-25px",
               }}
             >
-              Decode data and complex matters in a creative way.
+              &#x02193; We decode data and complex matters in a creative way
+              &#x000A9;
             </Text>
           </Container>
         </Grid>
@@ -80,7 +107,7 @@ function App() {
               alt="Experiment: Light cube"
             />
             <Text className="cardText" sx={{ bottom: "164px" }}>
-              Light Cube
+              &#x000AC; Light Cube
             </Text>
           </Card>
           <Card
@@ -93,7 +120,7 @@ function App() {
               src={experiment}
               alt="Experiment: Gradient Space"
             />
-            <Text className="cardText">Gradient Space</Text>
+            <Text className="cardText">&#x000AC; Gradient Space</Text>
           </Card>
           <Card
             className="card"
@@ -102,7 +129,7 @@ function App() {
           >
             <Image className="cardImage" src={planar} alt="Project: Planar" />
             <Text className="cardText" sx={{ bottom: "132px" }}>
-              Planar
+              &#x000AC; Planar
             </Text>
           </Card>
           <Card
@@ -115,7 +142,9 @@ function App() {
               src={cfl}
               alt="Cross Fertilization Lab Winner"
             />
-            <Text className="cardText">Cross Fertilization Lab Winner</Text>
+            <Text className="cardText">
+              &#x000AC; Cross Fertilization Lab Winner
+            </Text>
           </Card>
           <Card
             className="card"
@@ -123,11 +152,18 @@ function App() {
             sx={{ maxWidth: "500px" }}
           >
             <Image className="cardImage" src={stage} alt="Stage Design" />
-            <Text className="cardText">Stage Design for Visionnaire</Text>
+            <Text className="cardText">
+              &#x000AC; Stage Design for Visionnaire
+            </Text>
           </Card>
         </Grid>
       </Container>
-      <Container p={isMobileWithTablet ? 3 : 5} bg={"lighten"}>
+      <Container
+        p={isMobileWithTablet ? 3 : 5}
+        bg={"lighten"}
+        sx={{ position: "relative" }}
+      >
+        <CharsBar />
         <Grid gap={2} columns={[isMobileWithTablet ? 1 : 5]}>
           <Flex>
             <Image

@@ -51,6 +51,8 @@ function Box({ position, rotation, url }) {
 
   useFrame(() => {
     ref.current.rotation.y += 0.001;
+    ref.current.rotation.z += 0.001;
+    ref.current.rotation.x += 0.001;
   });
 
   return (
@@ -60,7 +62,8 @@ function Box({ position, rotation, url }) {
         <meshStandardMaterial
           map={texture1}
           side={THREE.DoubleSide}
-          opacity={0.5}
+          depthWrite={true}
+          depthTest={true}
           transparent
         />
       </mesh>
