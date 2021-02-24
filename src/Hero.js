@@ -48,6 +48,7 @@ function Box({ position, rotation, url }) {
   const texture1 = useLoader(THREE.TextureLoader, url);
 
   texture1.wrapS = texture1.wrapT = THREE.ClampToEdgeWrapping;
+  texture1.format = THREE.RGBAFormat;
 
   useFrame(() => {
     ref.current.rotation.y += 0.001;
@@ -62,9 +63,8 @@ function Box({ position, rotation, url }) {
         <meshStandardMaterial
           map={texture1}
           side={THREE.DoubleSide}
-          depthWrite={true}
-          depthTest={true}
-          transparent
+          transparent={true}
+          depthWrite={false}
         />
       </mesh>
     </group>
