@@ -178,7 +178,11 @@ function App() {
             </Text>
           </Flex>
           <Flex>
-            <a href="https://www.instagram.com/encoded.studio" target="_blank">
+            <a
+              href="https://www.instagram.com/encoded.studio"
+              target="_blank"
+              style={{ color: "white", fontSize: "24px" }}
+            >
               INSTAGRAM
             </a>
           </Flex>
@@ -186,6 +190,7 @@ function App() {
             <a
               href="https://www.linkedin.com/company/encoded-studio"
               target="_blank"
+              style={{ color: "white", fontSize: "24px" }}
             >
               LINKEDIN
             </a>
