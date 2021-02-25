@@ -24,11 +24,13 @@ function CharsBar() {
         zIndex: 3,
         letterSpacing: "10px",
         display: "flex",
-        height: isMobileWithTablet ? "30px" : "50px",
+        justifyContent: "space-between",
+        height: isMobileWithTablet ? "30px" : "3vw",
         lineHeight: 1,
         opacity: 0.75,
         width: "100%",
         overflow: "hidden",
+        initialLetterAlign: "alphabetic",
       }}
     >
       {/* 
@@ -52,7 +54,6 @@ function App() {
         {/* <NavLink href="#!" p={2}>
           Home
         </NavLink> */}
-        <CharsBar />
       </Flex>
       <Container
         px={0}
@@ -75,6 +76,12 @@ function App() {
           className="heroImage"
         />
         <Hero />
+      </Container>
+      <Container
+        px={isMobileWithTablet ? 3 : 5}
+        sx={{ position: "relative", height: "50px" }}
+      >
+        <CharsBar />
       </Container>
       <Container p={isMobileWithTablet ? 3 : 5}>
         <Grid
@@ -167,12 +174,7 @@ function App() {
           </Card>
         </Grid>
       </Container>
-      <Container
-        px={isMobileWithTablet ? 3 : 5}
-        sx={{ position: "relative", height: "50px" }}
-      >
-        <CharsBar />
-      </Container>
+
       <Container
         p={isMobileWithTablet ? 3 : 5}
         bg={"lighten"}
