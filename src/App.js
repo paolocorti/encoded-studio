@@ -14,26 +14,32 @@ function CharsBar() {
   return (
     <div
       style={{
-        fontSize: "1.3vw",
+        fontSize: isMobileWithTablet ? "30px" : "3vw",
         position: "absolute",
         padding: "0 15px",
+        textAlign: "center",
         top: 0,
         left: 0,
+        right: 0,
         zIndex: 3,
         letterSpacing: "10px",
         display: "flex",
+        height: isMobileWithTablet ? "30px" : "50px",
         lineHeight: 1,
         opacity: 0.75,
-        height: "30px",
+        width: "100%",
         overflow: "hidden",
       }}
     >
-      &#x000AC; &#x0002B; &#x000AA; &#x003B4; &#x021B6; &#x021C9; &#x0226C;
-      &#x0255D; &#x02591; &#x027F5; &#x02A15; &#x02AEF; &#x000A1; &#x000FA;
-      &#x000A8; &#x000B6; &#x000B6; &#x000D7; &#x000E6; &#x02039; &#x0204F;
-      &#x02031; &#x002DA; &#x02253; &#x000C5; &#x000B5; &#x000FF; &#x000F0;
-      &#x002DA; &#x02230; &#x02294; &#x0229B; &#x022B7; &#x022C6; &#x023B6;
-      &#x02640; &#x02ADA; &#x00024;
+      {/* 
+       &#x02591;   
+      &#x000A8; &#x000B6; &#x000B6; &#x000D7; &#x000E6;  &#x0204F;
+      &#x02031; &#x002DA; &#x02253; &#x000C5; &#x000B5; &#x000FF; 
+      &#x002DA; &#x02230;  &#x0229B; 
+      &#x02640; &#x02ADA; &#x00024; */}
+      &#x0002B; &#x02ADA; &#x000D7; &#x000B5; &#x02039; &#x022C6; &#x023B6;
+      &#x0226C; &#x000AA; &#x0002B; &#x000AC; &#x00024; &#x000AA; &#x003B4;
+      &#x021B6; &#x021C9; &#x0255D; &#x02AEF; &#x02294; &#x000F0; &#x022B7;
     </div>
   );
 }
@@ -66,6 +72,7 @@ function App() {
           }}
           src={logoText}
           alt="Encoded Studio logo"
+          className="heroImage"
         />
         <Hero />
       </Container>
@@ -161,50 +168,78 @@ function App() {
         </Grid>
       </Container>
       <Container
+        px={isMobileWithTablet ? 3 : 5}
+        sx={{ position: "relative", height: "50px" }}
+      >
+        <CharsBar />
+      </Container>
+      <Container
         p={isMobileWithTablet ? 3 : 5}
         bg={"lighten"}
         sx={{ position: "relative" }}
       >
-        <CharsBar />
-        <Grid gap={2} columns={[isMobileWithTablet ? 1 : 4]}>
-          <Flex>
+        <Flex sx={{ flexDirection: isMobileWithTablet ? "column" : "row" }}>
+          <Flex
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: "10px",
+              flexDirection: isMobileWithTablet ? "column" : "row",
+            }}
+          >
             <Image
               sx={{ width: "50px" }}
               src={logo}
               alt="Encoded Studio logo"
             />
-            <Text as="h2" sx={{ marginLeft: "15px" }}>
+            <Text
+              as="h2"
+              sx={{ marginLeft: isMobileWithTablet ? "0" : "15px" }}
+            >
               encoded.studio@gmail.com
             </Text>
           </Flex>
-          <Flex>
+          <Flex
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              margin: isMobileWithTablet ? "0" : "0 10px",
+            }}
+          >
             <a
               href="https://www.instagram.com/encoded.studio"
               target="_blank"
               style={{
                 color: "white",
-                fontSize: "20px",
+                fontSize: "22px",
                 textDecoration: "none",
+                fontWeight: "bold",
               }}
             >
-              INSTAGRAM
+              Instagram
             </a>
           </Flex>
-          <Flex>
+          <Flex
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              margin: isMobileWithTablet ? "0" : "0 10px",
+            }}
+          >
             <a
               href="https://www.linkedin.com/company/encoded-studio"
               target="_blank"
               style={{
                 color: "white",
-                fontSize: "20px",
+                fontSize: "22px",
                 textDecoration: "none",
+                fontWeight: "bold",
               }}
             >
-              LINKEDIN
+              Linkedin
             </a>
           </Flex>
-          <Flex></Flex>
-        </Grid>
+        </Flex>
       </Container>
     </div>
   );

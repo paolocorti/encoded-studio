@@ -64,7 +64,6 @@ function Box({ position, rotation, url }) {
           map={texture1}
           side={THREE.DoubleSide}
           transparent={true}
-          depthWrite={false}
         />
       </mesh>
     </group>
