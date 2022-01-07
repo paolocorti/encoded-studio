@@ -144,14 +144,14 @@ export default function Home() {
             </div>
             <div className='flex p-2 justify-center'></div>
             <div className='flex p-2 justify-center'>
-              <a className='text-2xl md:text-3xl' href='https://www.instagram.com/encoded.studio/' target='_blank'>INSTAGRAM</a>
+              <a className='text-2xl md:text-3xl' href='https://www.instagram.com/encoded.studio/' target='_blank' rel="noreferrer">INSTAGRAM</a>
             </div>
           </div>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <img class="block h-24 w-auto" src={'/images/logo.png'} alt="Encoded Logo" />
+        <img className="block h-24 w-auto" src={'/images/logo.png'} alt="Encoded Logo" />
       </footer>
     </div>
   )
