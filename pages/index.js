@@ -89,7 +89,7 @@ export default function Home() {
           <div
             className="relative aspect-square pt-16"
             style={{
-              backgroundImage: "url(/images/CLUSTER_24.jpg)",
+              backgroundImage: "url(/images/CLUSTER_24.jpg",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
