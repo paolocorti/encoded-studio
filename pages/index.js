@@ -89,9 +89,9 @@ export default function Home() {
           <div
             className="relative aspect-square pt-16"
             style={{
-              backgroundImage: "url(/images/CLUSTER_24.jpg",
+              backgroundImage: "url(/images/cluster_proj.jpg)",
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "50% 50%",
             }}
           ></div>
         </div>
