@@ -4,8 +4,6 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
 const Work = ({ frontmatter, content }) => {
-  console.log(frontmatter);
-
   return (
     <main className="px-12 md:px-24 py-24">
       <div className="mb-16 text-2xl font-sans">
